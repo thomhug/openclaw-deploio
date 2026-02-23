@@ -9,6 +9,10 @@ if [ ! -f /home/node/.openclaw/openclaw.json ]; then
   cp /opt/openclaw-config/openclaw.json /home/node/.openclaw/openclaw.json
 fi
 
+# Harden file permissions (security audit requirement)
+chmod 700 /home/node/.openclaw
+chmod 600 /home/node/.openclaw/openclaw.json
+
 # Static security audit before starting the gateway
 echo "Running OpenClaw security audit..."
 if ! node openclaw.mjs security audit 2>&1; then
