@@ -2,7 +2,13 @@
   "models": {
     "providers": {
       "anthropic": {
-        "apiKey": "$ANTHROPIC_API_KEY"
+        "apiKey": "$ANTHROPIC_API_KEY",
+        "baseUrl": "https://api.anthropic.com/v1",
+        "models": [
+          "claude-opus-4-6",
+          "claude-sonnet-4-6",
+          "claude-haiku-4-5-20251001"
+        ]
       }
     }
   },
