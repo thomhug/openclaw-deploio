@@ -28,8 +28,7 @@
   "commands": {
     "native": "auto",
     "nativeSkills": "auto",
-    "restart": true,
-    "ownerDisplay": "raw"
+    "restart": true
   },
   "session": {
     "dmScope": "per-channel-peer"
@@ -38,8 +37,7 @@
     "telegram": {
       "enabled": true,
       "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
-      "streaming": "off"
+      "groupPolicy": "allowlist"
     }
   },
   "gateway": {
