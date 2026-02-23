@@ -46,6 +46,9 @@
     "auth": {
       "mode": "token"
     },
+    "controlUi": {
+      "allowInsecureAuth": true
+    },
     "tailscale": {
       "mode": "off",
       "resetOnExit": false
