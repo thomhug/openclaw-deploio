@@ -1,0 +1,16 @@
+{
+  "models": {
+    "providers": {
+      "anthropic": {
+        "apiKey": "$ANTHROPIC_API_KEY"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-sonnet-4-6"
+      }
+    }
+  }
+}

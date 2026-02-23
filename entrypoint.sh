@@ -3,10 +3,10 @@ set -e
 
 cd /app
 
-# Run onboarding non-interactively if not already configured
+# Copy config if not already present
 if [ ! -f /home/node/.openclaw/openclaw.json ]; then
-  node openclaw.mjs onboard --non-interactive \
-    --anthropic-api-key "$ANTHROPIC_API_KEY"
+  mkdir -p /home/node/.openclaw
+  cp /opt/openclaw-config/openclaw.json /home/node/.openclaw/openclaw.json
 fi
 
 # Start gateway on Deploio's $PORT (default 8080)
