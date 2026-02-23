@@ -1,14 +1,9 @@
 {
-  "models": {
-    "providers": {
-      "anthropic": {
-        "apiKey": "$ANTHROPIC_API_KEY",
-        "baseUrl": "https://api.anthropic.com/v1",
-        "models": [
-          "claude-opus-4-6",
-          "claude-sonnet-4-6",
-          "claude-haiku-4-5-20251001"
-        ]
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
       }
     }
   },
@@ -16,7 +11,55 @@
     "defaults": {
       "model": {
         "primary": "anthropic/claude-sonnet-4-6"
+      },
+      "workspace": "/home/node/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
       }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist",
+      "streaming": "off"
+    }
+  },
+  "gateway": {
+    "bind": "lan",
+    "auth": {
+      "mode": "token"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "calendar.add",
+        "contacts.add",
+        "reminders.add"
+      ]
     }
   }
 }
