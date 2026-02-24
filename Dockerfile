@@ -1,4 +1,4 @@
-FROM ghcr.io/openclaw/openclaw:v2026.2.23
+FROM ghcr.io/openclaw/openclaw:latest
 
 ARG TELEGRAM_ALLOW_FROM
 ENV TELEGRAM_ALLOW_FROM=$TELEGRAM_ALLOW_FROM

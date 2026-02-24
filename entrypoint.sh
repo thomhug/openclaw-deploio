@@ -11,6 +11,10 @@ envsubst < /opt/openclaw-config/openclaw.json.template > /home/node/.openclaw/op
 chmod 700 /home/node/.openclaw
 chmod 600 /home/node/.openclaw/openclaw.json
 
+# Self-update OpenClaw if available
+echo "Checking for OpenClaw updates..."
+node openclaw.mjs update --yes 2>&1 || true
+
 # Static security audit before starting the gateway
 echo "Running OpenClaw security audit..."
 if ! node openclaw.mjs security audit 2>&1; then
