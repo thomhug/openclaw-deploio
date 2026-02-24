@@ -46,7 +46,15 @@
     "bind": "lan",
     "trustedProxies": ["10.0.0.0/8", "172.16.0.0/12"],
     "auth": {
-      "mode": "token"
+      "mode": "token",
+      "rateLimit": {
+        "maxAttempts": 10,
+        "windowMs": 60000,
+        "lockoutMs": 300000
+      }
+    },
+    "controlUi": {
+      "allowedOrigins": ["https://openclaw.b5cc74d.deploio.app"]
     },
     "tailscale": {
       "mode": "off",
