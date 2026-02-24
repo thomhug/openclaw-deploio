@@ -13,6 +13,7 @@ EXPOSE 8080
 
 COPY entrypoint.sh /entrypoint.sh
 USER root
+RUN apt-get update && apt-get install -y --no-install-recommends gettext-base && rm -rf /var/lib/apt/lists/*
 RUN chmod +x /entrypoint.sh
 USER node
 
