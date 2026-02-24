@@ -36,7 +36,9 @@
   "channels": {
     "telegram": {
       "enabled": true,
-      "dmPolicy": "pairing",
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+      "dmPolicy": "allowlist",
+      "allowFrom": [${TELEGRAM_ALLOW_FROM}],
       "groupPolicy": "allowlist"
     }
   },

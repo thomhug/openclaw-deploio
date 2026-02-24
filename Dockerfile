@@ -1,7 +1,10 @@
 FROM ghcr.io/openclaw/openclaw:latest
 
-# Copy pre-configured config (API key comes from env var)
-COPY config/openclaw.json /opt/openclaw-config/openclaw.json
+ARG TELEGRAM_ALLOW_FROM
+ENV TELEGRAM_ALLOW_FROM=$TELEGRAM_ALLOW_FROM
+
+# Copy config template (envsubst generates final config at runtime)
+COPY config/openclaw.json.template /opt/openclaw-config/openclaw.json.template
 
 ENV OPENCLAW_GATEWAY_BIND=lan
 ENV OPENCLAW_GATEWAY_PORT=8080

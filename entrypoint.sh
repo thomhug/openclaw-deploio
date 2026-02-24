@@ -3,11 +3,9 @@ set -e
 
 cd /app
 
-# Copy config if not already present
-if [ ! -f /home/node/.openclaw/openclaw.json ]; then
-  mkdir -p /home/node/.openclaw
-  cp /opt/openclaw-config/openclaw.json /home/node/.openclaw/openclaw.json
-fi
+# Generate config from template using environment variables
+mkdir -p /home/node/.openclaw
+envsubst < /opt/openclaw-config/openclaw.json.template > /home/node/.openclaw/openclaw.json
 
 # Harden file permissions (security audit requirement)
 chmod 700 /home/node/.openclaw
